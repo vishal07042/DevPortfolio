@@ -753,6 +753,237 @@
             line-height: 1;
         }
 
+        .manifesto-section {
+            position: relative;
+            height: 300vh;
+            background: #000000;
+            border-bottom: var(--border);
+        }
+
+        .manifesto-sticky {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .manifesto-dots {
+            position: absolute;
+            left: 2rem;
+            top: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .manifesto-dot {
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid var(--cream);
+            border-radius: 999px;
+            background: var(--cream);
+            opacity: 0.95;
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+
+        .manifesto-dot.active {
+            background: #b3ff00;
+            border-color: #b3ff00;
+            transform: scale(1.45);
+        }
+
+        .manifesto-cards {
+            position: relative;
+            width: min(100%, 980px);
+            min-height: 420px;
+        }
+
+        .manifesto-card {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(760px, calc(100% - 8rem));
+            padding: 2.6rem 3rem;
+            background: var(--cream);
+            border: var(--border);
+            box-shadow: 12px 12px 0 0 #ff4312;
+            transform: translate(-50%, calc(-50% + 100vh));
+            transition: transform 0.45s ease, opacity 0.45s ease;
+        }
+
+        .manifesto-card::before {
+            content: "";
+            position: absolute;
+            inset: -12px 12px 12px -12px;
+            border: var(--border);
+            background: rgba(247, 242, 229, 0.7);
+            z-index: -1;
+        }
+
+        .manifesto-card.is-past {
+            transform: translate(-50%, calc(-50% - 54px)) scale(0.92);
+            opacity: 0.55;
+        }
+
+        .manifesto-card.is-active {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .manifesto-card h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 700;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            color: #111111;
+            margin-bottom: 1.5rem;
+        }
+
+        .manifesto-card p {
+            font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+            font-weight: 500;
+            line-height: 1.4;
+            color: #111111;
+        }
+
+        .hello-section {
+            position: relative;
+            height: 260vh;
+            background:
+                repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(0, 0, 0, 0.025) 40px,
+                    rgba(0, 0, 0, 0.025) 80px),
+                #f9f6ee;
+            overflow: clip;
+        }
+
+        .hello-sticky {
+            position: sticky;
+            top: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem 5rem;
+            overflow: hidden;
+        }
+
+        .hello-content {
+            position: relative;
+            width: min(1100px, 100%);
+            min-height: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hello-mono {
+            font-family: "Poppins", sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #111111;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hello-title {
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(6rem, 18vw, 14rem);
+            font-weight: 700;
+            line-height: 0.83;
+            letter-spacing: -0.08em;
+            text-transform: uppercase;
+            color: #ff4242;
+            margin-top: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hello-badge {
+            position: absolute;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3.45rem;
+            padding: 0.75rem 1.6rem;
+            border: var(--border);
+            box-shadow: 6px 6px 0 0 #1a1a1a;
+            font-family: "Poppins", sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transform-origin: center;
+            will-change: transform;
+            opacity: 0;
+        }
+
+        .hello-badge.badge-left {
+            left: 7%;
+            top: 14%;
+            background: #aaff00;
+        }
+
+        .hello-badge.badge-right {
+            right: 7%;
+            bottom: 17%;
+            background: #f9a8d4;
+        }
+
+        .hello-badge.badge-top {
+            left: 17%;
+            top: 43%;
+            background: #ffffff;
+        }
+
+        .hello-badge.badge-mid {
+            right: 21%;
+            top: 34%;
+            background: #aaff00;
+        }
+
+        .hello-badge.badge-bottom-left {
+            left: 22%;
+            bottom: 18%;
+            background: #f9a8d4;
+        }
+
+        .hello-badge.badge-bottom-right {
+            right: 18%;
+            bottom: 30%;
+            background: #ffffff;
+        }
+
+        .hello-hole {
+            position: absolute;
+            right: 4%;
+            top: 50%;
+            width: min(18vw, 240px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            background:
+                radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.08), transparent 24%),
+                radial-gradient(circle at 50% 50%, #060606 0 34%, #111111 45%, rgba(0, 0, 0, 0.92) 62%, rgba(0, 0, 0, 0) 78%);
+            box-shadow:
+                0 0 0 14px rgba(0, 0, 0, 0.05),
+                0 0 60px rgba(0, 0, 0, 0.28);
+            pointer-events: none;
+        }
+
         @keyframes storySpin {
             from {
                 transform: rotate(0deg);
@@ -926,6 +1157,86 @@
                 height: 10rem;
                 margin: 0 auto;
             }
+
+            .manifesto-section {
+                height: auto;
+                padding: 5.5rem 0 2rem;
+            }
+
+            .manifesto-sticky {
+                position: relative;
+                min-height: auto;
+                display: block;
+                padding: 1rem;
+                overflow: visible;
+            }
+
+            .manifesto-dots {
+                display: none;
+            }
+
+            .manifesto-cards {
+                min-height: auto;
+                display: grid;
+                gap: 1.5rem;
+            }
+
+            .manifesto-card,
+            .manifesto-card.is-past,
+            .manifesto-card.is-active {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: 100%;
+                padding: 2rem 1.35rem;
+                transform: none;
+                opacity: 1;
+            }
+
+            .hello-section {
+                height: auto;
+            }
+
+            .hello-sticky {
+                position: relative;
+                min-height: 100svh;
+                padding: 2rem 1rem 3rem;
+            }
+
+            .hello-title {
+                font-size: clamp(5rem, 24vw, 8rem);
+            }
+
+            .hello-hole {
+                width: 130px;
+                right: -24px;
+                top: 18%;
+                transform: none;
+            }
+
+            .hello-badge {
+                position: static;
+                margin: 1rem auto 0;
+                width: fit-content;
+                opacity: 1;
+            }
+
+            .hello-badge.badge-left,
+            .hello-badge.badge-right,
+            .hello-badge.badge-top,
+            .hello-badge.badge-mid,
+            .hello-badge.badge-bottom-left,
+            .hello-badge.badge-bottom-right {
+                transform: none;
+            }
+
+            .hello-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                min-height: auto;
+            }
         }
     </style>
 </head>
@@ -933,7 +1244,7 @@
 <body>
     <div class="page">
         <nav class="site-nav" aria-label="Primary">
-            <div class="brand">AD.</div>
+            <div class="brand"></div>
             <button class="menu-button" aria-label="Open menu">
                 <span></span>
                 <span></span>
@@ -1132,6 +1443,55 @@
                 </div>
             </div>
         </section>
+
+        <section class="manifesto-section" id="labs">
+            <div class="manifesto-sticky">
+                <div class="manifesto-dots" aria-label="Manifesto steps">
+                    <button class="manifesto-dot active" type="button" data-step="0" aria-label="Show philosophy"></button>
+                    <button class="manifesto-dot" type="button" data-step="1" aria-label="Show process"></button>
+                    <button class="manifesto-dot" type="button" data-step="2" aria-label="Show stack"></button>
+                </div>
+
+                <div class="manifesto-cards">
+                    <article class="manifesto-card is-active">
+                        <h2>01. The Philosophy</h2>
+                        <p>Code is not just logic; it's a sensory experience. I bridge the gap between high-performance engineering and whimsical, playful design systems.</p>
+                    </article>
+
+                    <article class="manifesto-card">
+                        <h2>02. The Process</h2>
+                        <p>Iterate. Break. Fix. Polish. I use motion as a primary narrative tool to guide users through complex data sets and interactions.</p>
+                    </article>
+
+                    <article class="manifesto-card">
+                        <h2>03. The Stack</h2>
+                        <p>Built on the foundation of React, GSAP, and Three.js, with a religious devotion to 3px black borders and vibrant color palettes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="hello-section" id="contact">
+            <div class="hello-sticky">
+                <div class="hello-content">
+                    <div class="hello-mono">[ Portfolio v2.04 ]</div>
+                    <h2 class="hello-title">Skills</h2>
+
+                    <div class="hello-hole" aria-hidden="true"></div>
+
+                    <div class="hello-badge badge-left">React</div>
+                    <div class="hello-badge badge-right">Node</div>
+                    <div class="hello-badge badge-top">Express</div>
+                    <div class="hello-badge badge-mid">GSAP</div>
+                    <div class="hello-badge badge-bottom-left">Framer Motion</div>
+                    <div class="hello-badge badge-bottom-right">JavaScript</div>
+                    <div class="hello-badge badge-left" style="left: 12%; top: 64%; background:#ffffff;">MongoDB</div>
+                    <div class="hello-badge badge-right" style="right: 11%; top: 58%; background:#aaff00;">Three.js</div>
+                    <div class="hello-badge badge-top" style="left: 32%; top: 20%; background:#f9a8d4;">TypeScript</div>
+                    <div class="hello-badge badge-mid" style="right: 30%; top: 18%; background:#ffffff;">Next.js</div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <script>
@@ -1276,6 +1636,13 @@
         const worksTrack = document.getElementById("works-track");
         const worksSticky = document.querySelector(".works-sticky");
         const worksRail = document.getElementById("works-rail");
+        const manifestoSection = document.getElementById("labs");
+        const manifestoCards = Array.from(document.querySelectorAll(".manifesto-card"));
+        const manifestoDots = Array.from(document.querySelectorAll(".manifesto-dot"));
+        const helloSection = document.getElementById("contact");
+        const helloContent = document.querySelector(".hello-content");
+        const helloBadges = Array.from(document.querySelectorAll(".hello-badge"));
+        const helloHole = document.querySelector(".hello-hole");
 
         function getWorksMaxShift() {
             return Math.max(worksRail.scrollWidth - worksSticky.clientWidth, 0);
@@ -1309,17 +1676,104 @@
             worksRail.style.transform = `translate3d(${-progress * maxShift}px, 0, 0)`;
         }
 
+        function renderManifestoStep(step) {
+            manifestoCards.forEach((card, index) => {
+                card.classList.remove("is-active", "is-past");
+
+                if (index < step) {
+                    card.classList.add("is-past");
+                } else if (index === step) {
+                    card.classList.add("is-active");
+                }
+            });
+
+            manifestoDots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === step);
+            });
+        }
+
+        function updateManifestoSection() {
+            if (window.innerWidth <= 768) {
+                renderManifestoStep(0);
+                return;
+            }
+
+            const rect = manifestoSection.getBoundingClientRect();
+            const scrollable = Math.max(rect.height - window.innerHeight, 1);
+            const progress = Math.min(Math.max(-rect.top / scrollable, 0), 1);
+            const step = Math.min(Math.floor(progress * 3), 2);
+            renderManifestoStep(step);
+        }
+
+        function updateHelloSection() {
+            if (!helloSection || helloBadges.length === 0) {
+                return;
+            }
+
+            if (window.innerWidth <= 768) {
+                helloBadges.forEach((badge, index) => {
+                    const baseRotation = index % 2 === 0 ? -4 : 4;
+                    badge.style.opacity = "1";
+                    badge.style.transform = `rotate(${baseRotation}deg) translate3d(0, 0, 0)`;
+                });
+                return;
+            }
+
+            const rect = helloSection.getBoundingClientRect();
+            const progress = Math.min(Math.max(-rect.top / Math.max(rect.height - window.innerHeight, 1), 0), 1);
+            const revealProgress = Math.min(progress / 0.55, 1);
+            const swingProgress = progress <= 0.55 ? 0 : Math.min((progress - 0.55) / 0.45, 1);
+            const holeX = helloHole ? helloHole.offsetLeft + (helloHole.offsetWidth * 0.35) : helloSection.clientWidth * 0.85;
+            const holeY = helloHole ? helloHole.offsetTop + (helloHole.offsetHeight * 0.5) : helloSection.clientHeight * 0.5;
+            const revealSlice = 1 / helloBadges.length;
+
+            helloBadges.forEach((badge, index) => {
+                const badgeRevealProgress = Math.min(Math.max((revealProgress - (revealSlice * index)) / revealSlice, 0), 1);
+                const targetX = badge.offsetLeft + (badge.offsetWidth / 2);
+                const targetY = badge.offsetTop + (badge.offsetHeight / 2);
+                const settleX = holeX - targetX;
+                const settleY = holeY - targetY;
+                const revealX = settleX * (1 - badgeRevealProgress);
+                const revealY = settleY * (1 - badgeRevealProgress);
+                const direction = index % 2 === 0 ? -1 : 1;
+                const baseRotation = index % 2 === 0 ? -7 : 7;
+                const swingRotation = 22 * swingProgress * direction;
+                const swingX = 48 * swingProgress * direction;
+                const swingY = (index % 3 === 0 ? -18 : 18) * swingProgress;
+
+                badge.style.opacity = String(badgeRevealProgress);
+                badge.style.transform = `translate3d(${revealX + swingX}px, ${revealY + swingY}px, 0) rotate(${baseRotation + swingRotation}deg)`;
+            });
+        }
+
+        manifestoDots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                const scrollable = Math.max(manifestoSection.offsetHeight - window.innerHeight, 1);
+                const targetTop = manifestoSection.offsetTop + (scrollable / 3) * index;
+                window.scrollTo({ top: targetTop, behavior: "smooth" });
+            });
+        });
+
         window.addEventListener("scroll", updateWorksShowcase, { passive: true });
+        window.addEventListener("scroll", updateManifestoSection, { passive: true });
+        window.addEventListener("scroll", updateHelloSection, { passive: true });
         window.addEventListener("resize", () => {
             syncWorksTrackHeight();
             updateWorksShowcase();
+            updateManifestoSection();
+            updateHelloSection();
         });
         window.addEventListener("load", () => {
             syncWorksTrackHeight();
             updateWorksShowcase();
+            updateManifestoSection();
+            updateHelloSection();
         });
         syncWorksTrackHeight();
         updateWorksShowcase();
+        renderManifestoStep(0);
+        updateManifestoSection();
+        updateHelloSection();
     </script>
 </body>
 
