@@ -754,6 +754,264 @@
             line-height: 1;
         }
 
+        .works-featured {
+            position: relative;
+            background: #f7f2e5;
+            border-bottom: var(--border);
+            padding: 6.5rem 1.5rem 8rem;
+            overflow: visible;
+        }
+
+        .works-featured-shell {
+            width: min(1520px, 100%);
+            margin: 0 auto;
+        }
+
+        .works-featured-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 4px solid #1b1b1b;
+            margin-bottom: 5rem;
+        }
+
+        .works-featured-title {
+            font-family: "Fredoka", sans-serif;
+            font-size: clamp(4rem, 8vw, 7.3rem);
+            line-height: 0.9;
+            letter-spacing: -0.07em;
+            text-transform: uppercase;
+            color: #111111;
+        }
+
+        .works-featured-scroll {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3.6rem;
+            padding: 0.85rem 1.5rem;
+            border: 3px solid #111111;
+            border-radius: 0.8rem;
+            background: #111111;
+            color: #50c800;
+            font-family: "Fredoka", sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transform: rotate(1deg);
+        }
+
+        .works-featured-stack {
+            position: relative;
+            display: block;
+            padding-top: 1rem;
+            padding-bottom: 20vh;
+        }
+
+        .works-featured-stage {
+            position: sticky;
+            width: 100%;
+            padding-top: 1rem;
+        }
+
+        .works-featured-stage:nth-child(1) {
+            top: 6rem;
+            z-index: 1;
+        }
+
+        .works-featured-stage:nth-child(2) {
+            top: 8rem;
+            z-index: 2;
+        }
+
+        .works-featured-stage:nth-child(3) {
+            top: 10rem;
+            z-index: 3;
+        }
+
+        .works-featured-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(360px, 0.94fr);
+            align-items: center;
+            gap: 2.5rem;
+            background: #fbfbfb;
+            border: 4px solid #1b1b1b;
+            border-radius: 2.2rem;
+            padding: 2.5rem;
+            box-shadow: 10px 10px 0 #111111;
+            transition: transform 0.45s ease;
+        }
+
+        .works-featured-stage:hover .works-featured-card {
+            transform: rotate(1deg);
+        }
+
+        .works-featured-stage.is-reverse:hover .works-featured-card {
+            transform: rotate(-1deg);
+        }
+
+        .works-featured-card.is-reverse {
+            grid-template-columns: minmax(360px, 0.94fr) minmax(0, 1fr);
+        }
+
+        .works-featured-card.is-reverse .works-featured-copy {
+            order: 2;
+        }
+
+        .works-featured-card.is-reverse .works-featured-visual {
+            order: 1;
+        }
+
+        .works-featured-visual {
+            min-height: 300px;
+            border: 4px solid #1b1b1b;
+            border-radius: 1.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 769px) {
+            .works-featured-visual {
+                min-height: 400px;
+            }
+        }
+
+        .works-featured-visual.is-green {
+            background: #b7ceb0;
+        }
+
+        .works-featured-visual.is-pink {
+            background: #cfb4ba;
+        }
+
+        .works-featured-visual.is-slate {
+            background: #8b95a6;
+        }
+
+        .works-featured-icon {
+            width: 132px;
+            height: 132px;
+            color: rgba(17, 17, 17, 0.18);
+        }
+
+        .works-featured-card.is-dark .works-featured-icon {
+            color: rgba(247, 242, 229, 0.25);
+        }
+
+        .works-featured-copy {
+            max-width: 34rem;
+        }
+
+        .works-featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .works-featured-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 2rem;
+            padding: 0.38rem 1rem;
+            border: 3px solid #1b1b1b;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #111111;
+            font-family: "Fredoka", sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .works-featured-tag.is-soft {
+            background: #efc7c1;
+        }
+
+        .works-featured-tag.is-lime {
+            background: #63e500;
+        }
+
+        .works-featured-card.is-dark {
+            background: #141414;
+            color: #f7f2e5;
+            z-index: 3;
+        }
+
+        .works-featured-card.is-dark .works-featured-visual {
+            border-color: #f7f2e5;
+        }
+
+        .works-featured-card.is-dark .works-featured-tag {
+            background: transparent;
+            color: #f7f2e5;
+            border-color: #f7f2e5;
+        }
+
+        .works-featured-card.is-dark .works-featured-tag.is-lime {
+            background: #63e500;
+            color: #111111;
+            border-color: #63e500;
+        }
+
+        .works-featured-name {
+            font-family: "Fredoka", sans-serif;
+            font-size: clamp(2.7rem, 4.8vw, 4.5rem);
+            line-height: 0.94;
+            letter-spacing: -0.06em;
+            text-transform: uppercase;
+            color: inherit;
+            margin-bottom: 1rem;
+        }
+
+        .works-featured-desc {
+            font-size: clamp(1.15rem, 1.65vw, 1.8rem);
+            line-height: 1.45;
+            color: #4f5668;
+            margin-bottom: 2rem;
+        }
+
+        .works-featured-card.is-dark .works-featured-desc {
+            color: rgba(247, 242, 229, 0.82);
+        }
+
+        .works-featured-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            min-height: 4.25rem;
+            padding: 0.95rem 2rem;
+            border-radius: 999px;
+            background: #111111;
+            color: #f7f2e5;
+            text-decoration: none;
+            font-family: "Fredoka", sans-serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .works-featured-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 22px rgba(17, 17, 17, 0.14);
+        }
+
+        .works-featured-link svg {
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+
         .manifesto-section {
             position: relative;
             height: 300vh;
@@ -1380,13 +1638,14 @@
 
         .poster-dock {
             position: absolute;
-            left: 50%;
-            bottom: 0.4rem;
-            transform: translateX(-50%);
-            display: inline-flex;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.2rem;
+            gap: 0.85rem;
+            justify-content: center;
+            padding: 1.15rem 0.9rem;
             border: 2px solid rgba(17, 17, 17, 0.12);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.96);
@@ -1677,6 +1936,67 @@
                 margin: 0 auto;
             }
 
+            .works-featured {
+                padding: 4.5rem 1rem 5rem;
+            }
+
+            .works-featured-head {
+                align-items: flex-start;
+                flex-direction: column;
+                margin-bottom: 2.25rem;
+            }
+
+            .works-featured-scroll {
+                font-size: 1.15rem;
+                min-height: 3rem;
+            }
+
+            .works-featured-card,
+            .works-featured-card.is-reverse {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.2rem;
+                border-radius: 1.55rem;
+                box-shadow: 6px 6px 0 #111111;
+                min-height: auto;
+                position: relative;
+                top: auto;
+            }
+
+            .works-featured-stack {
+                display: grid;
+                gap: 1rem;
+                padding-bottom: 0;
+            }
+
+            .works-featured-stage {
+                position: relative;
+                top: auto !important;
+                padding-top: 0;
+                margin-top: 0 !important;
+            }
+
+            .works-featured-card.is-reverse .works-featured-copy,
+            .works-featured-card.is-reverse .works-featured-visual {
+                order: initial;
+            }
+
+            .works-featured-visual {
+                min-height: 250px;
+                border-radius: 1.15rem;
+            }
+
+            .works-featured-icon {
+                width: 88px;
+                height: 88px;
+            }
+
+            .works-featured-link {
+                font-size: 1.1rem;
+                min-height: 3.5rem;
+                padding: 0.85rem 1.35rem;
+            }
+
             .manifesto-section {
                 height: auto;
                 padding: 5.5rem 0 2rem;
@@ -1892,7 +2212,6 @@
 
             .poster-dock {
                 position: static;
-                transform: none;
                 width: fit-content;
                 max-width: 100%;
                 margin: 1.25rem auto 0;
@@ -2140,7 +2459,734 @@
                     <div class="works-rail" id="works-rail">
                         <article class="work-card">
                             <div class="work-visual">
-                                <div class="work-fill fill-1">Image Placeholder 1</div>
+                                <div class="work-fill fill-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="100%" height="100%">
+                                    <defs>
+                                        <style>
+                                            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&amp;display=swap');
+                                
+                                            * {
+                                                font-family: 'Outfit', sans-serif;
+                                            }
+                                
+                                            .bg {
+                                                fill: #fdfcfc;
+                                            }
+                                
+                                            /* Scene Animations */
+                                            .scene {
+                                                opacity: 0;
+                                                transform-origin: center;
+                                            }
+                                
+                                            .scene1 {
+                                                animation: s1 24s infinite cubic-bezier(0.25, 1, 0.5, 1);
+                                            }
+                                
+                                            .scene2 {
+                                                animation: s2 24s infinite cubic-bezier(0.25, 1, 0.5, 1);
+                                            }
+                                
+                                            .scene3 {
+                                                animation: s3 24s infinite cubic-bezier(0.25, 1, 0.5, 1);
+                                            }
+                                
+                                            .scene4 {
+                                                animation: s4 24s infinite cubic-bezier(0.25, 1, 0.5, 1);
+                                            }
+                                
+                                            @keyframes s1 {
+                                                0% {
+                                                    opacity: 0;
+                                                    transform: translateY(40px) scale(0.95);
+                                                }
+                                
+                                                2%,
+                                                22% {
+                                                    opacity: 1;
+                                                    transform: translateY(0) scale(1);
+                                                }
+                                
+                                                25%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translateY(-40px) scale(1.05);
+                                                }
+                                            }
+                                
+                                            @keyframes s2 {
+                                
+                                                0%,
+                                                23% {
+                                                    opacity: 0;
+                                                    transform: translateY(40px) scale(0.95);
+                                                }
+                                
+                                                25%,
+                                                47% {
+                                                    opacity: 1;
+                                                    transform: translateY(0) scale(1);
+                                                }
+                                
+                                                50%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translateY(-40px) scale(1.05);
+                                                }
+                                            }
+                                
+                                            @keyframes s3 {
+                                
+                                                0%,
+                                                48% {
+                                                    opacity: 0;
+                                                    transform: translateY(40px) scale(0.95);
+                                                }
+                                
+                                                50%,
+                                                72% {
+                                                    opacity: 1;
+                                                    transform: translateY(0) scale(1);
+                                                }
+                                
+                                                75%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translateY(-40px) scale(1.05);
+                                                }
+                                            }
+                                
+                                            @keyframes s4 {
+                                
+                                                0%,
+                                                73% {
+                                                    opacity: 0;
+                                                    transform: translateY(40px) scale(0.95);
+                                                }
+                                
+                                                75%,
+                                                97% {
+                                                    opacity: 1;
+                                                    transform: translateY(0) scale(1);
+                                                }
+                                
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translateY(-40px) scale(1.05);
+                                                }
+                                            }
+                                
+                                            /* Typography */
+                                            .title {
+                                                fill: #2f3035;
+                                                font-size: 72px;
+                                                font-weight: 900;
+                                                letter-spacing: -2px;
+                                            }
+                                
+                                            .subtitle {
+                                                fill: #b1b1b1;
+                                                font-size: 28px;
+                                                font-weight: 600;
+                                            }
+                                
+                                            /* Vibrant Text Colors */
+                                            .text-orange {
+                                                fill: #f87941;
+                                            }
+                                
+                                            .text-peach {
+                                                fill: #f9b095;
+                                            }
+                                
+                                            .text-dark {
+                                                fill: #2f3035;
+                                            }
+                                
+                                            /* Scene 1 Animations */
+                                            .playhead {
+                                                animation: scrub 4s infinite ease-in-out;
+                                            }
+                                
+                                            .razor {
+                                                animation: slice 4s infinite ease-in-out;
+                                            }
+                                
+                                            @keyframes scrub {
+                                
+                                                0%,
+                                                100% {
+                                                    transform: translateX(0);
+                                                }
+                                
+                                                50% {
+                                                    transform: translateX(250px);
+                                                }
+                                            }
+                                
+                                            @keyframes slice {
+                                
+                                                0%,
+                                                40% {
+                                                    opacity: 0;
+                                                    transform: translate(150px, -50px) rotate(45deg) scale(0.8);
+                                                }
+                                
+                                                45% {
+                                                    opacity: 1;
+                                                    transform: translate(150px, 10px) rotate(0deg) scale(1.2);
+                                                }
+                                
+                                                55% {
+                                                    opacity: 1;
+                                                    transform: translate(150px, 40px) rotate(-10deg) scale(1.2);
+                                                }
+                                
+                                                60%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translate(150px, -30px) rotate(20deg) scale(0.8);
+                                                }
+                                            }
+                                
+                                            /* Scene 2 Animations */
+                                            .typing-word {
+                                                opacity: 0;
+                                                animation: popIn 6s infinite;
+                                            }
+                                
+                                            .w1 {
+                                                animation-delay: 6s;
+                                            }
+                                
+                                            .w2 {
+                                                animation-delay: 6.2s;
+                                            }
+                                
+                                            .w3 {
+                                                animation-delay: 6.4s;
+                                            }
+                                
+                                            .w4 {
+                                                animation-delay: 6.6s;
+                                            }
+                                
+                                            .w5 {
+                                                animation-delay: 6.8s;
+                                            }
+                                
+                                            .w6 {
+                                                animation-delay: 7.0s;
+                                            }
+                                
+                                            .w7 {
+                                                animation-delay: 7.2s;
+                                            }
+                                
+                                            @keyframes popIn {
+                                
+                                                0%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: translateY(10px) scale(0.8);
+                                                }
+                                
+                                                5%,
+                                                90% {
+                                                    opacity: 1;
+                                                    transform: translateY(0) scale(1);
+                                                }
+                                            }
+                                
+                                            .bounce {
+                                                animation: bouncer 2s infinite ease-in-out;
+                                            }
+                                
+                                            @keyframes bouncer {
+                                
+                                                0%,
+                                                100% {
+                                                    transform: translateY(0);
+                                                }
+                                
+                                                50% {
+                                                    transform: translateY(-15px);
+                                                }
+                                            }
+                                
+                                            /* Scene 3 Animations */
+                                            .select-box {
+                                                stroke-dasharray: 400;
+                                                stroke-dashoffset: 400;
+                                                animation: drawSelect 6s infinite 12s;
+                                            }
+                                
+                                            .delete-action {
+                                                opacity: 0;
+                                                transform-origin: center;
+                                                animation: fadeDelete 6s infinite 12s;
+                                            }
+                                
+                                            .timeline-collapse {
+                                                animation: collapse 6s infinite 12s;
+                                            }
+                                
+                                            @keyframes drawSelect {
+                                
+                                                0%,
+                                                15% {
+                                                    stroke-dashoffset: 400;
+                                                    opacity: 1;
+                                                    fill: transparent;
+                                                }
+                                
+                                                25%,
+                                                60% {
+                                                    stroke-dashoffset: 0;
+                                                    opacity: 1;
+                                                    fill: rgba(248, 121, 65, 0.15);
+                                                }
+                                
+                                                65%,
+                                                100% {
+                                                    stroke-dashoffset: 0;
+                                                    opacity: 0;
+                                                    fill: transparent;
+                                                }
+                                            }
+                                
+                                            @keyframes fadeDelete {
+                                
+                                                0%,
+                                                30% {
+                                                    opacity: 0;
+                                                    transform: scale(0.5);
+                                                }
+                                
+                                                35%,
+                                                55% {
+                                                    opacity: 1;
+                                                    transform: scale(1.1);
+                                                }
+                                
+                                                60%,
+                                                100% {
+                                                    opacity: 0;
+                                                    transform: scale(0.5);
+                                                }
+                                            }
+                                
+                                            @keyframes collapse {
+                                
+                                                0%,
+                                                55% {
+                                                    transform: translateX(0);
+                                                }
+                                
+                                                60%,
+                                                90% {
+                                                    transform: translateX(-120px);
+                                                }
+                                
+                                                95%,
+                                                100% {
+                                                    transform: translateX(0);
+                                                }
+                                            }
+                                
+                                            /* Scene 4 Animations */
+                                            .pulse-ring {
+                                                animation: pulse 2s infinite cubic-bezier(0.1, 0.8, 0.3, 1);
+                                                transform-origin: center;
+                                            }
+                                
+                                            .pulse-ring-2 {
+                                                animation: pulse 2s infinite cubic-bezier(0.1, 0.8, 0.3, 1) 0.5s;
+                                                transform-origin: center;
+                                            }
+                                
+                                            .float {
+                                                animation: floatAnim 6s infinite ease-in-out;
+                                            }
+                                
+                                            @keyframes pulse {
+                                                0% {
+                                                    transform: scale(0.6);
+                                                    opacity: 1;
+                                                    stroke-width: 8;
+                                                }
+                                
+                                                100% {
+                                                    transform: scale(2.5);
+                                                    opacity: 0;
+                                                    stroke-width: 0;
+                                                }
+                                            }
+                                
+                                            @keyframes floatAnim {
+                                
+                                                0%,
+                                                100% {
+                                                    transform: translateY(0px) rotate(0deg);
+                                                }
+                                
+                                                50% {
+                                                    transform: translateY(-15px) rotate(1deg);
+                                                }
+                                            }
+                                
+                                            .spin-slow {
+                                                animation: spin 8s linear infinite;
+                                            }
+                                
+                                            @keyframes spin {
+                                                100% {
+                                                    transform: rotate(360deg);
+                                                }
+                                            }
+                                        </style>
+                                
+                                        <!-- Custom Palette Gradients -->
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#f87941" />
+                                            <stop offset="100%" stop-color="#f9b095" />
+                                        </linearGradient>
+                                
+                                        <linearGradient id="video-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#3f4148" />
+                                            <stop offset="100%" stop-color="#1a1b1e" />
+                                        </linearGradient>
+                                
+                                        <!-- Vibrant Drop Shadows using Palette -->
+                                        <filter id="shadow-dark" x="-10%" y="-10%" width="120%" height="120%">
+                                            <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#2f3035" flood-opacity="0.15" />
+                                        </filter>
+                                        <filter id="shadow-color" x="-20%" y="-20%" width="140%" height="140%">
+                                            <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#f87941" flood-opacity="0.3" />
+                                        </filter>
+                                        <filter id="glow-orange" x="-30%" y="-30%" width="160%" height="160%">
+                                            <feGaussianBlur stdDeviation="20" result="blur" />
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                        </filter>
+                                    </defs>
+                                
+                                    <!-- Background -->
+                                    <rect class="bg" width="100%" height="100%" />
+                                
+                                    <!-- Colored Background Blobs for Punchy Vibe -->
+                                    <g opacity="0.4" filter="blur(80px)">
+                                        <circle cx="100" cy="100" r="300" fill="#f9b095" opacity="0.2" />
+                                        <circle cx="1100" cy="600" r="400" fill="#f87941" opacity="0.1" />
+                                        <circle cx="640" cy="360" r="350" fill="#e6e4e6" opacity="0.4" />
+                                    </g>
+                                
+                                    <!-- Subtle Dot Grid Pattern -->
+                                    <g opacity="0.2">
+                                        <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+                                            <circle cx="2" cy="2" r="2" fill="#b1b1b1" />
+                                        </pattern>
+                                        <rect width="100%" height="100%" fill="url(#dots)" />
+                                    </g>
+                                
+                                    <!-- ==============================================
+                                       SCENE 1: THE PROBLEM
+                                       ============================================== -->
+                                    <g class="scene scene1">
+                                        <text x="640" y="150" text-anchor="middle" class="title">Video Editing is <tspan class="text-orange">Tedious
+                                            </tspan></text>
+                                        <text x="640" y="210" text-anchor="middle" class="subtitle">Scrubbing milestones, zooming timelines, razor
+                                            tool...</text>
+                                
+                                        <g transform="translate(240, 310)" filter="url(#shadow-dark)">
+                                            <!-- Timeline Interface Window -->
+                                            <rect width="800" height="320" rx="24" fill="#fdfcfc" stroke="#2f3035" stroke-width="6" />
+                                
+                                            <!-- Top control bar -->
+                                            <rect x="3" y="3" width="794" height="60" rx="21" fill="#e6e4e6" />
+                                            <line x1="0" y1="63" x2="800" y2="63" stroke="#2f3035" stroke-width="6" />
+                                
+                                            <circle cx="30" cy="33" r="8" fill="#f87941" />
+                                            <circle cx="56" cy="33" r="8" fill="#f9b095" />
+                                            <circle cx="82" cy="33" r="8" fill="#b1b1b1" />
+                                
+                                            <!-- Timeline Tracks -->
+                                            <g transform="translate(40, 100)">
+                                                <!-- Video Track -->
+                                                <rect width="720" height="48" rx="12" fill="#e6e4e6" stroke="#2f3035" stroke-width="3" />
+                                                <rect width="400" height="48" rx="12" fill="url(#grad1)" stroke="#2f3035" stroke-width="3" />
+                                                <rect width="200" x="420" height="48" rx="12" fill="url(#grad1)" stroke="#2f3035" stroke-width="3" />
+                                            </g>
+                                
+                                            <!-- Audio Waveform Track -->
+                                            <g transform="translate(40, 170)">
+                                                <rect width="720" height="80" rx="12" fill="#e6e4e6" stroke="#2f3035" stroke-width="3" />
+                                                <path
+                                                    d="M 0 40 Q 15 10 30 40 T 60 40 T 90 10 T 120 70 T 150 40 T 180 60 T 210 10 T 240 70 T 270 40 T 300 10 T 330 70 T 360 40 T 390 60 T 420 10 T 450 70 T 480 40 T 510 10 T 540 60 T 570 30 T 600 40 T 630 10 T 660 60 T 690 40 T 720 40"
+                                                    fill="none" stroke="#f87941" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"
+                                                    opacity="0.8" />
+                                            </g>
+                                
+                                            <!-- Razor Icon slice animation -->
+                                            <g class="razor">
+                                                <g filter="url(#shadow-color)">
+                                                    <rect x="220" y="110" width="40" height="60" rx="8" fill="#f87941" stroke="#2f3035"
+                                                        stroke-width="4" />
+                                                    <circle cx="240" cy="140" r="10" fill="#fdfcfc" stroke="#2f3035" stroke-width="4" />
+                                                    <line x1="220" y1="120" x2="240" y2="120" stroke="#2f3035" stroke-width="4" />
+                                                </g>
+                                                <line x1="240" y1="80" x2="240" y2="280" stroke="#f87941" stroke-width="4" stroke-dasharray="8 8" />
+                                            </g>
+                                
+                                            <!-- Playhead Scrubbing -->
+                                            <g class="playhead" transform="translate(100, 80)">
+                                                <polygon points="-16,0 16,0 0,24" fill="#f9b095" stroke="#2f3035" stroke-width="4"
+                                                    stroke-linejoin="round" />
+                                                <line x1="0" y1="24" x2="0" y2="210" stroke="#f9b095" stroke-width="4" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                
+                                    <!-- ==============================================
+                                       SCENE 2: THE SOLUTION
+                                       ============================================== -->
+                                    <g class="scene scene2">
+                                        <text x="640" y="150" text-anchor="middle" class="title">Edit Video by <tspan class="text-orange">Editing Text
+                                            </tspan></text>
+                                        <text x="640" y="210" text-anchor="middle" class="subtitle">Upload video. Whisper AI transcribes. You edit the
+                                            doc.</text>
+                                
+                                        <!-- Editor UI Window -->
+                                        <g transform="translate(240, 280)" filter="url(#shadow-color)">
+                                            <rect width="800" height="380" rx="24" fill="#fdfcfc" stroke="#2f3035" stroke-width="6" />
+                                
+                                            <!-- Premium Video Player Left -->
+                                            <g transform="translate(40, 40)">
+                                                <!-- Video screen with depth gradient and inner border -->
+                                                <rect width="340" height="220" rx="16" fill="url(#video-grad)" />
+                                                <rect width="340" height="220" rx="16" fill="transparent" stroke="rgba(255,255,255,0.15)"
+                                                    stroke-width="2" />
+                                
+                                                <!-- Premium Abstract Avatar/Subject -->
+                                                <g transform="translate(170, 95)">
+                                                    <g class="spin-slow">
+                                                        <circle cx="0" cy="0" r="45" fill="none" stroke="#f87941" stroke-width="2"
+                                                            stroke-dasharray="6 6" opacity="0.4" />
+                                                    </g>
+                                                    <circle cx="0" cy="0" r="35" fill="none" class="pulse-ring-2" stroke="#f9b095" stroke-width="4"
+                                                        opacity="0.6" />
+                                                    <circle cx="0" cy="0" r="24" fill="url(#grad1)" />
+                                                    <!-- User / avatar icon shape -->
+                                                    <circle cx="0" cy="-5" r="5" fill="#fdfcfc" />
+                                                    <path d="M -10,12 Q 0,2 10,12" fill="none" stroke="#fdfcfc" stroke-width="4"
+                                                        stroke-linecap="round" />
+                                                </g>
+                                
+                                                <!-- Floating Glassmorphic Controls Bar -->
+                                                <g transform="translate(16, 160)">
+                                                    <rect width="308" height="44" rx="12" fill="rgba(20,20,24,0.6)" />
+                                                    <rect width="308" height="44" rx="12" fill="transparent" stroke="rgba(255,255,255,0.08)"
+                                                        stroke-width="1" />
+                                
+                                                    <!-- Small Play Icon -->
+                                                    <polygon points="18,17 26,22 18,27" fill="#f87941" />
+                                
+                                                    <!-- Timestamps -->
+                                                    <text x="36" y="26" fill="#e6e4e6" font-size="11" font-weight="600">01:24</text>
+                                
+                                                    <!-- Sleek Progress Track -->
+                                                    <rect x="72" y="20" width="156" height="4" rx="2" fill="#2f3035" />
+                                                    <rect x="72" y="20" width="85" height="4" rx="2" fill="url(#grad1)" />
+                                                    <circle cx="157" cy="22" r="5" fill="#fdfcfc" filter="url(#glow-orange)" />
+                                
+                                                    <!-- Timestamps -->
+                                                    <text x="238" y="26" fill="#b1b1b1" font-size="11" font-weight="600">04:20</text>
+                                
+                                                    <!-- Volume Icon -->
+                                                    <path d="M 276,20 L 280,20 L 284,16 L 284,28 L 280,24 L 276,24 Z" fill="#e6e4e6" />
+                                                    <path d="M 288,18 Q 291,22 288,26" fill="none" stroke="#e6e4e6" stroke-width="1.5"
+                                                        stroke-linecap="round" />
+                                                </g>
+                                            </g>
+                                
+                                            <!-- Advanced Connection Elements -->
+                                            <g transform="translate(420, 150)">
+                                                <g class="bounce">
+                                                    <path d="M 0,0 Q 20,-30 44,0" fill="none" stroke="#f87941" stroke-width="4"
+                                                        stroke-dasharray="6 6" />
+                                
+                                                    <g transform="translate(20, -20)">
+                                                        <circle cx="0" cy="0" r="32" fill="url(#grad1)" filter="url(#glow-orange)" opacity="0.6" />
+                                                        <circle cx="0" cy="0" r="26" fill="#2f3035" stroke="#f87941" stroke-width="3" />
+                                                        <text x="0" y="6" text-anchor="middle" fill="#fdfcfc" font-size="18" font-weight="900">AI</text>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                
+                                            <!-- Text Editor Right -->
+                                            <g transform="translate(490, 40)">
+                                                <rect width="270" height="300" rx="16" fill="#e6e4e6" stroke="#2f3035" stroke-width="3" />
+                                                <text x="20" y="40" fill="#2f3035" font-size="20" font-weight="800"
+                                                    text-transform="uppercase">Transcript</text>
+                                                <line x1="20" y1="55" x2="250" y2="55" stroke="#b1b1b1" stroke-width="3" />
+                                
+                                                <g font-size="24" font-weight="600" fill="#2f3035">
+                                                    <text class="typing-word w1" x="20" y="100">So</text>
+                                                    <text class="typing-word w2" x="55" y="100">what</text>
+                                                    <text class="typing-word w3" x="120" y="100">we're</text>
+                                                    <text class="typing-word w4" x="20" y="140">building</text>
+                                
+                                                    <text class="typing-word w5" x="115" y="140">here</text>
+                                                    <text class="typing-word w6" x="175" y="140">is</text>
+                                
+                                                    <g class="typing-word w7">
+                                                        <!-- Highlight Background -->
+                                                        <rect x="15" y="150" width="95" height="36" rx="8" fill="#f9b095" />
+                                                        <text x="20" y="176" fill="#2f3035" font-weight="900">magic</text>
+                                                    </g>
+                                
+                                                    <text class="typing-word w7" x="120" y="176">video</text>
+                                                    <text class="typing-word w7" x="20" y="216">editor...</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                
+                                    <!-- ==============================================
+                                       SCENE 3: DEMO - CUTTING
+                                       ============================================== -->
+                                    <g class="scene scene3">
+                                        <text x="640" y="150" text-anchor="middle" class="title">Delete <tspan fill="#f87941">Words</tspan> to Cut
+                                            Video</text>
+                                        <text x="640" y="210" text-anchor="middle" class="subtitle">Cut "um"s and "ah"s literally like a text
+                                            document.</text>
+                                
+                                        <g transform="translate(240, 280)" filter="url(#shadow-dark)">
+                                            <rect width="800" height="380" rx="24" fill="#fdfcfc" stroke="#2f3035" stroke-width="6" />
+                                
+                                            <g transform="translate(60, 100)">
+                                                <text x="0" y="0" font-size="36" font-weight="700" fill="#2f3035">
+                                                    It's
+                                                    <tspan x="70">really,</tspan>
+                                                    <tspan x="185" class="delete-word" fill="#f87941">um,</tspan>
+                                                    <tspan x="260" class="delete-word" fill="#f87941">you know,</tspan>
+                                                    <tspan x="430">easy to use.</tspan>
+                                                </text>
+                                
+                                                <!-- Selection Box Animating -->
+                                                <rect class="select-box" x="170" y="-35" width="245" height="50" rx="8" fill="transparent"
+                                                    stroke="#f87941" stroke-width="4" stroke-dasharray="10 10" stroke-linecap="round" />
+                                
+                                                <!-- Action Button -->
+                                                <g transform="translate(290, -85)">
+                                                    <g class="delete-action">
+                                                        <rect width="80" height="40" rx="12" fill="#f87941" filter="url(#glow-orange)" stroke="#2f3035"
+                                                            stroke-width="3" />
+                                                        <text x="40" y="26" fill="#fdfcfc" font-size="16" font-weight="900" letter-spacing="1px"
+                                                            text-anchor="middle">DEL</text>
+                                                    </g>
+                                                </g>
+                                
+                                                <!-- Strikethrough effect via CSS -->
+                                                <line class="delete-action" x1="175" y1="-10" x2="405" y2="-10" stroke="#f87941" stroke-width="8"
+                                                    stroke-linecap="round" />
+                                            </g>
+                                
+                                            <!-- Mini Timeline Updating below -->
+                                            <g transform="translate(60, 240)">
+                                                <text x="0" y="-20" font-size="16" font-weight="900" fill="#b1b1b1" letter-spacing="2px">VIDEO
+                                                    TIMELINE</text>
+                                
+                                                <!-- Segment 1 -->
+                                                <rect width="200" height="40" rx="12" fill="url(#grad1)" stroke="#2f3035" stroke-width="3" />
+                                
+                                                <!-- Segment 2 (The gap being removed) -->
+                                                <g class="delete-action">
+                                                    <rect width="120" x="210" height="40" rx="12" fill="#fdfcfc" stroke="#2f3035" stroke-width="3" />
+                                                    <rect width="120" x="210" height="40" rx="12" fill="#f87941" opacity="0.8" />
+                                                    <!-- X hatched pattern -->
+                                                    <path d="M 220 0 L 250 40 M 240 0 L 270 40 M 260 0 L 290 40 M 280 0 L 310 40 M 300 0 L 330 40"
+                                                        stroke="#fdfcfc" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+                                                </g>
+                                
+                                                <!-- Segment 3 (Slides over) -->
+                                                <g transform="translate(340, 0)">
+                                                    <g class="timeline-collapse">
+                                                        <rect width="340" height="40" rx="12" fill="url(#grad1)" stroke="#2f3035" stroke-width="3" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                
+                                    <!-- ==============================================
+                                       SCENE 4: LOCAL & PRIVATE
+                                       ============================================== -->
+                                    <g class="scene scene4">
+                                        <text x="640" y="150" text-anchor="middle" class="title">100% Local. <tspan fill="#f87941">Zero Servers.</tspan>
+                                            </text>
+                                        <text x="640" y="210" text-anchor="middle" class="subtitle">Whisper and FFmpeg run natively via absolute browser
+                                            magic.</text>
+                                
+                                        <!-- Glowing Browser representation -->
+                                        <g transform="translate(240, 280)" filter="url(#shadow-color)">
+                                            <g class="float">
+                                                <rect width="800" height="340" rx="24" fill="#fdfcfc" stroke="#2f3035" stroke-width="6" />
+                                
+                                                <!-- Browser Top Bar -->
+                                                <rect x="3" y="3" width="794" height="60" rx="21" fill="#e6e4e6" />
+                                                <line x1="0" y1="63" x2="800" y2="63" stroke="#2f3035" stroke-width="6" />
+                                                <rect x="250" y="16" width="300" height="32" rx="16" fill="#fdfcfc" stroke="#b1b1b1" stroke-width="2" />
+                                                <text x="400" y="38" fill="#b1b1b1" font-size="16" font-weight="600" text-anchor="middle">🔒
+                                                    localhost</text>
+                                
+                                                <g transform="translate(400, 190)">
+                                                    <!-- Core App Container -->
+                                
+                                                    <circle cx="0" cy="0" r="180" fill="none" stroke="#e6e4e6" stroke-width="4"
+                                                        stroke-dasharray="8 8" />
+                                
+                                                    <!-- Pulse effects -->
+                                                    <circle cx="0" cy="0" r="70" fill="none" stroke="#f87941" stroke-width="8" class="pulse-ring" />
+                                                    <circle cx="0" cy="0" r="70" fill="none" stroke="#f9b095" stroke-width="6" class="pulse-ring-2" />
+                                
+                                                    <circle cx="0" cy="0" r="70" fill="url(#grad1)" stroke="#2f3035" stroke-width="4" />
+                                                    <text x="0" y="14" font-size="40" text-anchor="middle">🎬</text>
+                                
+                                                    <!-- FFmpeg.wasm Node -->
+                                                    <g transform="translate(-200, 0)">
+                                                        <path d="M 60,0 L 120,0" fill="none" stroke="#f87941" stroke-width="6" stroke-linecap="round"
+                                                            stroke-dasharray="10 10" />
+                                                        <circle cx="0" cy="0" r="50" fill="#2f3035" stroke="#f87941" stroke-width="4" />
+                                                        <text x="0" y="-2" fill="#fdfcfc" font-size="16" font-weight="800"
+                                                            text-anchor="middle">FFmpeg</text>
+                                                        <text x="0" y="18" fill="#f87941" font-size="12" font-weight="800"
+                                                            text-anchor="middle">WASM</text>
+                                                    </g>
+                                
+                                                    <!-- Whisper.wasm Node -->
+                                                    <g transform="translate(200, 0)">
+                                                        <path d="M -60,0 L -120,0" fill="none" stroke="#f9b095" stroke-width="6" stroke-linecap="round"
+                                                            stroke-dasharray="10 10" />
+                                                        <circle cx="0" cy="0" r="50" fill="#2f3035" stroke="#f9b095" stroke-width="4" />
+                                                        <text x="0" y="-2" fill="#fdfcfc" font-size="16" font-weight="800"
+                                                            text-anchor="middle">Whisper</text>
+                                                        <text x="0" y="18" fill="#f9b095" font-size="12" font-weight="800"
+                                                            text-anchor="middle">AI</text>
+                                                    </g>
+                                                </g>
+                                
+                                                <!-- Safe Tag Floating -->
+                                                <g transform="translate(620, -25)">
+                                                    <rect width="140" height="48" rx="24" fill="#f9b095" stroke="#2f3035" stroke-width="4" />
+                                                    <text x="70" y="30" fill="#2f3035" font-size="16" font-weight="900" text-anchor="middle"
+                                                        letter-spacing="1px">DATA SAFE</text>
+                                                </g>
+                                            </g>
+                                        </g>
+                                
+                                    </g>
+                                
+                                </svg>
+</div>
                                 <div class="work-index">01</div>
                             </div>
                             <div class="work-meta">
@@ -2198,6 +3244,99 @@
                                 <span class="view-all-arrow">ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢</span>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="works-featured" id="work-featured">
+            <div class="works-featured-shell">
+                <div class="works-featured-head">
+                    <h2 class="works-featured-title">Selected<br>Works</h2>
+                    <div class="works-featured-scroll">Scroll Down</div>
+                </div>
+
+                <div class="works-featured-stack">
+                    <div class="works-featured-stage">
+                        <article class="works-featured-card">
+                            <div class="works-featured-visual is-green" aria-hidden="true">
+                                <svg class="works-featured-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="5" width="16" height="11" rx="2"></rect>
+                                    <path d="M12 16v3"></path>
+                                    <path d="M8.5 20h7"></path>
+                                </svg>
+                            </div>
+                            <div class="works-featured-copy">
+                                <div class="works-featured-tags">
+                                    <span class="works-featured-tag">Fintech</span>
+                                    <span class="works-featured-tag">React</span>
+                                    <span class="works-featured-tag">Three.js</span>
+                                </div>
+                                <h3 class="works-featured-name">Coinflow App</h3>
+                                <p class="works-featured-desc">A playful approach to personal finance. Built a gamified dashboard with interactive 3D elements and robust state management that turned boring charts into engaging toys.</p>
+                                <a href="#" class="works-featured-link">
+                                    <span>View Project</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="works-featured-stage is-reverse">
+                        <article class="works-featured-card is-reverse">
+                            <div class="works-featured-copy">
+                                <div class="works-featured-tags">
+                                    <span class="works-featured-tag is-soft">E-Commerce</span>
+                                    <span class="works-featured-tag">Next.js</span>
+                                    <span class="works-featured-tag">Framer Motion</span>
+                                </div>
+                                <h3 class="works-featured-name">Retro Supply</h3>
+                                <p class="works-featured-desc">An e-commerce platform designed with heavy neobrutalist influences. Engineered custom cart animations and seamless page transitions resulting in a 40% increase in session duration.</p>
+                                <a href="#" class="works-featured-link">
+                                    <span>View Project</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="works-featured-visual is-pink" aria-hidden="true">
+                                <svg class="works-featured-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="4.6"></circle>
+                                    <path d="M8.8 13.1c.9 1.2 1.9 1.9 3.2 1.9s2.3-.7 3.2-1.9"></path>
+                                </svg>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="works-featured-stage">
+                        <article class="works-featured-card is-dark">
+                            <div class="works-featured-visual is-slate" aria-hidden="true">
+                                <svg class="works-featured-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path>
+                                    <path d="M14 3v5h5"></path>
+                                </svg>
+                            </div>
+                            <div class="works-featured-copy">
+                                <div class="works-featured-tags">
+                                    <span class="works-featured-tag is-lime">SaaS</span>
+                                    <span class="works-featured-tag">Vue.js</span>
+                                    <span class="works-featured-tag">Node</span>
+                                </div>
+                                <h3 class="works-featured-name">Tasktonic</h3>
+                                <p class="works-featured-desc">A project management tool that doesn't feel like work. Implemented drag-and-drop interfaces with physics-based feedback and real-time collaboration via WebSockets.</p>
+                                <a href="#" class="works-featured-link">
+                                    <span>View Project</span>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
