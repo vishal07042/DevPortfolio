@@ -28,50 +28,28 @@
             padding: 0;
         }
 
+        /* Global Scrollbar Hiding & Smooth Scrolling */
+
+        * {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;     /* Firefox */
+        }
+
+        *::-webkit-scrollbar {
+            display: none;             /* Chrome, Safari and Opera */
+        }
+
         body {
             min-height: 100vh;
             overflow-x: hidden;
             background: var(--cream);
             color: var(--dark);
             font-family: "Poppins", sans-serif;
-        }
-
-        button {
-            border: 0;
-            background: transparent;
-            color: inherit;
-            font: inherit;
-            cursor: pointer;
-        }
-
-        .page {
-            min-height: 100vh;
+            overscroll-behavior: none;
             position: relative;
         }
 
-        .site-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-            transition: opacity 0.2s ease;
-        }
-
-        .brand {
-            font-family: "Fredoka", sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-        }
-
-        .menu-button {
-            display: inline-flex;
-            flex-direction: column;
+        button {
             gap: 0.55rem;
             padding: 0.5rem;
         }
@@ -4469,7 +4447,150 @@
         updateManifestoSection();
         updateHelloSection();
         syncStickerDividerHeight();
-        updateStickerDivider();
+        // Custom Scroll Management (4:1 Dampening + Multiple Gate Snaps)
+        (function() {
+            const section1 = document.getElementById('hero');
+            const section2 = document.getElementById('intro');
+            const section3 = document.getElementById('about');
+            
+            let targetScroll = window.scrollY;
+            let currentScroll = window.scrollY;
+            let isMoving = false;
+            let lastManualTime = 0;
+            
+            let gate1Buffer = 0;
+            let gate2Buffer = 0;
+            let s2EnterTime = isAt(section2) ? Date.now() : 0;
+            
+            const scrollThreshold = 400; // ~4 notches
+            const s2MinStay = 5000; // 5 seconds
+            const dampeningFactor = 0.25; 
+            const defaultLerp = 0.1;
+            let currentLerp = defaultLerp;
+
+            function isAt(el) {
+                if (!el) return false;
+                return Math.abs(window.scrollY - el.offsetTop) < 30;
+            }
+
+            window.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const now = Date.now();
+                lastManualTime = now;
+
+                // GATE 1: Section 1 -> Section 2
+                if (isAt(section1) && e.deltaY > 0) {
+                    gate1Buffer += e.deltaY;
+                    if (gate1Buffer >= scrollThreshold) {
+                        targetScroll = section2.offsetTop;
+                        currentLerp = 0.15; 
+                        isMoving = true;
+                        gate1Buffer = 0;
+                        s2EnterTime = now; // Mark entry to S2
+                    }
+                    return;
+                }
+
+                // GATE 2: Section 2 -> Section 3
+                if (isAt(section2) && e.deltaY > 0) {
+                    if (now - s2EnterTime < s2MinStay) return; // Locked for 5s
+                    
+                    gate2Buffer += e.deltaY;
+                    if (gate2Buffer >= scrollThreshold) {
+                        targetScroll = section3.offsetTop;
+                        currentLerp = 0.15;
+                        isMoving = true;
+                        gate2Buffer = 0;
+                    }
+                    return;
+                }
+
+                // Normal dampened scrolling
+                currentLerp = defaultLerp;
+                gate1Buffer = 0;
+                gate2Buffer = 0;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                targetScroll = Math.max(0, Math.min(maxScroll, targetScroll + e.deltaY * dampeningFactor));
+                isMoving = true;
+            }, { passive: false });
+
+            let touchStartY = 0;
+            window.addEventListener('touchstart', (e) => {
+                touchStartY = e.touches[0].pageY;
+                if (Math.abs(targetScroll - window.scrollY) > 10) {
+                    targetScroll = window.scrollY;
+                    currentScroll = window.scrollY;
+                }
+            }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                const touchY = e.touches[0].pageY;
+                const deltaY = touchStartY - touchY;
+                touchStartY = touchY;
+                const now = Date.now();
+
+                // GATE 1: Section 1 -> Section 2 (Touch)
+                if (isAt(section1) && deltaY > 0) {
+                    gate1Buffer += deltaY;
+                    if (gate1Buffer >= 150) { 
+                        targetScroll = section2.offsetTop;
+                        currentLerp = 0.15;
+                        isMoving = true;
+                        gate1Buffer = 0;
+                        s2EnterTime = now;
+                    }
+                    return;
+                }
+
+                // GATE 2: Section 2 -> Section 3 (Touch)
+                if (isAt(section2) && deltaY > 0) {
+                    if (now - s2EnterTime < s2MinStay) return;
+                    gate2Buffer += deltaY;
+                    if (gate2Buffer >= 150) {
+                        targetScroll = section3.offsetTop;
+                        currentLerp = 0.15;
+                        isMoving = true;
+                        gate2Buffer = 0;
+                    }
+                    return;
+                }
+
+                e.preventDefault();
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                targetScroll = Math.max(0, Math.min(maxScroll, targetScroll + deltaY * dampeningFactor));
+                isMoving = true;
+                lastManualTime = now;
+                currentLerp = defaultLerp;
+            }, { passive: false });
+
+            window.addEventListener('scroll', () => {
+                if (Date.now() - lastManualTime > 300) {
+                    if (Math.abs(window.scrollY - targetScroll) > 50) {
+                        targetScroll = window.scrollY;
+                        currentScroll = window.scrollY;
+                        // Extra insurance: if they jumped to S2 manually, set entry time
+                        if (isAt(section2) && s2EnterTime === 0) s2EnterTime = Date.now();
+                    }
+                }
+            }, { passive: true });
+
+            function scrollLoop() {
+                if (isMoving) {
+                    const diff = targetScroll - currentScroll;
+                    if (Math.abs(diff) > 0.5) {
+                        currentScroll += diff * currentLerp;
+                        window.scrollTo(0, currentScroll);
+                    } else {
+                        currentScroll = targetScroll;
+                        isMoving = false;
+                        gate1Buffer = 0;
+                        gate2Buffer = 0;
+                    }
+                }
+                requestAnimationFrame(scrollLoop);
+            }
+            requestAnimationFrame(scrollLoop);
+        })();
     </script>
 </body>
 
