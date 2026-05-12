@@ -2405,7 +2405,7 @@
                 <div class="about-carousel-content">
                     <div class="about-step active">
                         <div class="about-pill">Who I Am</div>
-                        <h2 class="about-title">A Developer with<br>a Designer's Eye</h2>
+                        <h2 class="about-title">A Developer with<br>a Architect's Eye</h2>
                         <p class="about-card">I bridge the gap between aesthetic vision and technical reality, turning
                             wild ideas into robust digital products.</p>
                     </div>
@@ -4003,7 +4003,9 @@
                                     <span class="works-featured-tag">WebRTC</span>
                                     <span class="works-featured-tag">Express</span>
                                 </div>
-                                <h3 class="works-featured-name" onclick="window.open('https://adhd-focus-mate-gamified.vercel.app/')">Adhd Focus Mate</h3>
+                                <h3 class="works-featured-name"
+                                    onclick="window.open('https://adhd-focus-mate-gamified.vercel.app/')">Adhd Focus
+                                    Mate</h3>
                                 <p class="works-featured-desc">Developed an ADHD-focused productivity app centered on
                                     the behavioral psychology of 'body doubling.' Engineered a real-time, peer-to-peer
                                     focus matrix that uses social accountability to help users overcome task paralysis
@@ -4114,14 +4116,17 @@
 
                     <article class="manifesto-card">
                         <h2>02. The Process</h2>
-                        <p>Iterate. Break. Fix. Polish. I use motion as a primary narrative tool to guide users through
-                            complex data sets and interactions.</p>
+                        <p>Iterate. Break. Fix. Polish. Iterate.  I build scalable systems, refine backend performance, and craft intuitive interfaces for seamless user interactions.</p>
                     </article>
 
                     <article class="manifesto-card">
                         <h2>03. The Stack</h2>
-                        <p>Built on the foundation of React, GSAP, and Three.js, with a religious devotion to 3px black
-                            borders and vibrant color palettes.</p>
+
+
+                        <p>Built on a the foundation of React, Node.js and Express.js — combining interactive
+                            frontend experiences with scalable backend architecture, with a focus on clean system
+                            design and polished user experiences.</p>
+
                     </article>
                 </div>
             </div>
@@ -4235,7 +4240,7 @@
             sliderInterval = window.setInterval(() => {
                 const nextIndex = (currentPersona + 1) % personas.length;
                 changePersona(nextIndex);
-            }, 3000);
+            }, 2000);
         }
 
         dots.forEach((dot, index) => {
@@ -4641,9 +4646,9 @@
             let gate2Buffer = 0;
             let s2EnterTime = isAt(section2) ? Date.now() : 0;
 
-            const scrollThreshold = 400; // ~4 notches
-            const s2MinStay = 5000; // 5 seconds
-            const dampeningFactor = 0.43;
+            const scrollThreshold = 200; // ~4 notches
+            const s2MinStay = 1000; // 5 seconds
+            const dampeningFactor = 0.70;
             const defaultLerp = 0.1;
             let currentLerp = defaultLerp;
 
